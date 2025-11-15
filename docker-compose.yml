@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  netgui:
+    build: .
+    container_name: netgui-xterm
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${HOME}/.Xauthority:/home/netgui-user/.Xauthority:rw
+    stdin_open: true
+    tty: true
+    privileged: false
