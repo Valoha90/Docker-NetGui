@@ -1,0 +1,39 @@
+! Configuración de xterm para NetGUI
+! Habilitar copiar con Ctrl+Shift+C y pegar con Ctrl+Shift+V
+
+! Configuración básica
+xterm*faceName: Monospace
+xterm*faceSize: 12
+xterm*renderFont: true
+xterm*utf8: 2
+xterm*eightBitInput: true
+
+! Colores
+xterm*background: black
+xterm*foreground: white
+xterm*color0: #000000
+xterm*color7: #FFFFFF
+
+! Scrollback
+xterm*saveLines: 5000
+xterm*scrollBar: true
+
+! Bindings personalizados para copiar y pegar
+! Ctrl+Shift+C para copiar
+xterm*VT100.Translations: #override \
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! Habilitar selección con mouse
+xterm*highlightSelection: true
+xterm*selectToClipboard: true
+
+! Teclas rápidas adicionales
+xterm*VT100.Translations: #override \
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>N: scroll-back(1,halfpage) \n\
+    Ctrl Shift <Key>P: scroll-forw(1,halfpage)
+
+! Tamaño de la terminal
+xterm*geometry: 120x40
