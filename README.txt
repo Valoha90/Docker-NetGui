@@ -14,3 +14,5 @@ docker run -it --rm --network host --tmpfs /dev/shm:rw,nosuid,nodev,exec,mode=07
 #Tambien esto fue echo con la ayuda de Manuel Gomes Dasilva y Fransisco Nahuel Lista.
 
 #El docker se encuentra https://hub.docker.com/r/valoha90/netgui.
+
+#Y el paquete .deb en https://drive.google.com/file/d/1XddgQs-Lk_OorkAJNKKRQ81CgvQ-kseS/view?usp=drive_link.
