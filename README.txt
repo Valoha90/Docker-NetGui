@@ -18,3 +18,5 @@ docker run -it --rm --network host --tmpfs /dev/shm:rw,nosuid,nodev,exec,mode=07
 #Y el paquete .deb en https://drive.google.com/file/d/1XddgQs-Lk_OorkAJNKKRQ81CgvQ-kseS/view?usp=drive_link.
 
 #los archivos de configuracion xterm y netkit (por default viene gnome) son necesarios para que la imagen se puedea hacer; con x-term se puede copiar y pegar con ctrl+shift+(C/V).
+#La ventaja de este netgui sobre el paquete es que esta configurado con atajos y bonito para xterm
+#La desbentaja es que una vez que cierres netgui no va a salir del contenedor hasta que escribas "exit"
