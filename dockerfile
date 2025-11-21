@@ -77,8 +77,8 @@ RUN mkdir -p /var/lib/netkit && \
     chmod 777 /var/lib/netkit
 
 # Configura xterm para copiar/pegar con Ctrl+Shift
-RUN mkdir -p /root/.config/xterm
-COPY xterm-config /root/.config/xterm/
+COPY ./xterm-config /root/.Xresources
+COPY ./.bashrc /root/.bashrc
 
 # Configura DBUS para X11(interfaz grafica)
 RUN mkdir -p /var/run/dbus && \
@@ -91,8 +91,10 @@ RUN useradd -m -s /bin/bash netgui-user && \
 # Copia el archivo de configuracion de netkit
 COPY netkit.conf /usr/local/netkit/netkit.conf
 
-# Elije el directorio donde trabajara el docker
-WORKDIR /root
 
-# Ejecuta netgui
-CMD ["/usr/local/bin/netgui.sh"]
+# Elije y crea el directorio donde trabajara el docker
+RUN mkdir -p /root/LabsNetgui
+WORKDIR /root/LabsNetgui
+
+# Ejecuta netgui cargando la configuracion de xterm
+CMD ["bash"]

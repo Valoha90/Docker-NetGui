@@ -4,11 +4,11 @@
 DirNetguiLabs=$HOME/NetguiLabs
 mkdir $DirNetguiLabs 2> /dev/null
 #es una variable que guarda la id del docker
-IdDocker=52b42822ce5b8b1c32975768ae450048da3e0e7fd38cc071021b6501758d22ed
+IdDocker=valoha90/netgui:0.4.10.3
 #configura x11 para el apartado grafico 
 xhost +local:docker > /dev/null 2>&1
-#Esta linea de comando es necesaria para ejecutar el docker de netgui y que funcione todo es vital. 
-docker run -it --rm --network host --tmpfs /dev/shm:rw,nosuid,nodev,exec,mode=0777 --ipc=host -e DISPLAY=$DISPLAY  -v $DirNetguiLabs:/root  $IdDocker
+#Esta linea de comando es necesaria para ejecutar el docker de netgui y que funcione todo es vital se muestra una terminal y para ejecuar netgui es ngxterm.sh
+docker run -it --rm --network host --tmpfs /dev/shm:rw,nosuid,nodev,exec,mode=0777 --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw  -v $DirNetguiLabs:/root/LabsNetgui  $IdDocker
 #-it   -i: Modo interactivo (mantiene STDIN abierto)   -t: Asigna una pseudo-terminal (TTY)
 #--network host Usa la stack de red del host directamente (sin aislamiento de red) el contenedor comparte la interfaz de red con el host pq netgui lo necesita(sin esto no ejecuta o puede que tenga limitaciones si lo restringes).
 #Combinados permiten la interacción con el contenedor como si fuera una terminal normal
@@ -25,8 +25,12 @@ docker run -it --rm --network host --tmpfs /dev/shm:rw,nosuid,nodev,exec,mode=07
 #Comparte el espacio de nombres IPC (Inter-Process Communication) con el host
 #-e DISPLAY=$DISPLAY
 #Configura la variable de entorno DISPLAY para aplicaciones gráficas com tambien permite mostrar ventanas en el host
+#-v /tmp/.X11-unix:/tmp/.X11-unix:rw
+#hace factible la copia y pega de comandos etc
 #-v $DirNetguiLabs:/root
 #Monta el directorio local $DirNetguiLabs en /root del contenedor
 #$DirNetguiLabs es una variable de entorno
+
 #netgui-final:0.4.10
 #Es la imagen y versión que se ejecutará
+
