@@ -1,4 +1,15 @@
-
+#####################################################################################################
+################################# GUIA DE INSTALACION ###############################################
+# Primero instalar docker.
+apt install docker #o cualquier otra variable de apt para mas info https://docs.docker.com/engine/install/
+# Segundo hacer un pull a la imagen
+docker pull valoha90/netgui:0.4.10.3
+# Tercero una vez descargada la imagen podes verificar con (docker images) Descargar el script netgui_in_docker.sh y modificar los permisos
+chmod 744 netgui_in_docker.sh
+# Cuarto ejecutar el script y verificar si la variable de $IdDocker es la misma que el tag de la imagen con (docker images) IMPORTANTE!!! SOLO EN EL CASO DE QUE EL SCRIPT NO FUNCIONE
+./netgui_in_docker.sh
+#####################################################################################################
+#####################################################################################################
 #Solo es un docker para no andar webeando con las dependencias de netgui que son librerias de 32bits;
 #El paquete esta sacado de un repo en una pagiina de una universidad de españa pero no encuentro la pagina.
 #El paquete original fue creado por GSyC/MobiQuo group su pagina https://mobiquo.gsyc.urjc.es/netlab.html.
