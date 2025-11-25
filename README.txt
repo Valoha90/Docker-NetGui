@@ -6,7 +6,7 @@ apt install docker #o cualquier otra variable de apt para mas info https://docs.
 docker pull valoha90/netgui:0.4.10.3
 # Tercero una vez descargada la imagen podes verificar con (docker images) Descargar el script netgui_in_docker.sh y modificar los permisos
 chmod 744 netgui_in_docker.sh
-# Cuarto ejecutar el script y verificar si la variable de $IdDocker es la misma que el tag de la imagen con (docker images) IMPORTANTE!!! SOLO EN EL CASO DE QUE EL SCRIPT NO FUNCIONE
+# Cuarto ejecutar el script y verificar si la variable de $IdDocker es la misma que el tag(nombre) de la imagen con (docker images) IMPORTANTE!!! SOLO EN EL CASO DE QUE EL SCRIPT NO FUNCIONE
 ./netgui_in_docker.sh
 #####################################################################################################
 #####################################################################################################
